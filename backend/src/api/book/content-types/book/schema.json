@@ -31,6 +31,12 @@
       "type": "media",
       "multiple": false,
       "required": true
+    },
+    "genres": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::genre.genre",
+      "inversedBy": "books"
     }
   }
 }

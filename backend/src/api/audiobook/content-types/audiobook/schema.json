@@ -30,6 +30,12 @@
       ],
       "type": "media",
       "multiple": false
+    },
+    "genres": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::genre.genre",
+      "inversedBy": "audiobooks"
     }
   }
 }
