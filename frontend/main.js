@@ -1,3 +1,5 @@
+const loginBtn = document.getElementById("loginBtn");
+
 const fetchData = async (url) => {
     const {data} = await axios.get(url)
     return data;
