@@ -30,9 +30,9 @@ const setActivePage = () => {
   
   sections.forEach(section => {
     if (section.id === currentSection){
-        section.classList.remove("hidden");
+        section.hidden = false;
     } else {
-      section.classList.add("hidden");
+      section.hidden = true;
     }
   })
 }
