@@ -1,5 +1,8 @@
 const LOCAL_HOST = "http://localhost:1337";
-const loginBtn = document.getElementById("loginBtn");
+const showLoginBtn = document.getElementById("showLogInBtn");
+const showSignUpBtn = document.getElementById("showSignUpBtn");
+const libraryList = document.getElementById("libraryList");
+const sections = document.querySelectorAll("section");
 
 const fetchData = async (url) => {
     const {data} = await axios.get(url)
@@ -52,7 +55,7 @@ const printLibraryList = async () => {
 const printBookCard = async (book) => {
   const { attributes: { title, author, rating, pages:pagesNum, cover: { data: { attributes: {url}}}}} = book;
 
-  const libraryList = document.getElementById("libraryList");
+  
   const bookItem = document.createElement("article");
   bookItem.innerHTML = 
     `<div id="bookOwner">
@@ -72,10 +75,36 @@ const printBookCard = async (book) => {
   libraryList.append(bookItem)
 }
 
+const showLogin = () => {
+  const loginComponent = document.getElementById("loginComponent");
+
+  sections.forEach(section => {
+    section.classList.add("hidden")
+  })
+
+  loginComponent.classList.remove("hidden")
+
+}
+
+const showSignUp = () => {
+  const signUpComponent = document.getElementById("signUpComponent");
+
+  sections.forEach(section => {
+    section.classList.add("hidden")
+  })
+
+  signUpComponent.classList.remove("hidden")
+}
+
 // Event Listeners
-loginBtn.addEventListener("click", (e) => {
+showLoginBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  login();
+  showLogin();
+})
+
+showSignUpBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  showSignUp();
 })
 
 printLibraryList()
