@@ -6,17 +6,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Library App Using Headless CMS – Strapi</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.1/axios.min.js" integrity="sha512-bPh3uwgU5qEMipS/VOmRqynnMXGGSRv+72H/N260MQeXZIK4PG48401Bsby9Nq5P5fz7hy5UGNmC/W1Z51h2GQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
 <body>
   <nav>
     <div>BookDucks</div>
-    <div>
+    <div id="publicNav">
       <button id="logIn">Log In</button>
       <button id="signUp">Sign Up</button>
     </div>
+    <div id="loggedIn">
+      <button id="loggedInUser"><i class="fa fa-user"></i>Username</button>
+    </div>
   </nav>
 
-  <h1>Library</h1>
+  <h1>All titles available</h1>
+
+  <section id="libraryList">
+    <article>
+      <div id="owner">
+        <p>Batman</p>
+        <p>batman@gotham.com</p>
+      </div>
+      <div>
+        <img src="" alt="">
+        <h2>The Pragmatic Programmer</h2>
+        <p>By David Thomas, Andrew Hunt</p>
+        <p>Book <span>(300 pages)</span></p>
+        <span>Tech</span>
+        <span>Programming</span>
+      </div>
+    </article>
+  </section>
 
   <section id="loginComponent" class="login-component">
     <p>Log in</p>
@@ -29,12 +51,7 @@
     </form>
   </section>
 
-  <section>
-    <ul id="booksList">
-    </ul>
-    <ul id="audiobooksList">
-    </ul>
-  </section>
+
 <script src="main.js"></script>
 </body>
 </html>
