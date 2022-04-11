@@ -6,14 +6,14 @@ const createAccount = async () => {
   const email = document.getElementById("newEmail");
   const password = document.getElementById("newPassword");
 
-  const response = await axios.post("http://localhost:1337/api/auth/local/register", {    
+  await axios.post("http://localhost:1337/api/auth/local/register", {    
     username: username.value,
     email: email.value,
     password: password.value,
   }).then(response => {
     const token = response.data.jwt;
     sessionStorage.setItem("token", token);
-  })
+  }).then(changeActivePage("profile"))
 }
 
 signUpBtn.addEventListener("click", (e) => {

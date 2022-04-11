@@ -1,3 +1,5 @@
+const loginBtn = document.getElementById("loginBtn");
+
 const login = async () => {
   const username = document.getElementById("username");
   const password = document.getElementById("password");
@@ -12,7 +14,10 @@ const login = async () => {
   const token = data.jwt;
   sessionStorage.setItem("token", token);
 
-  //Reset inputs
-  username.value="";
-  password.value="";
+  changeActivePage("profile")
 }
+
+loginBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  login();
+})
