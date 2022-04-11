@@ -26,7 +26,7 @@
     <h1>All titles available</h1>
   </section>
 
-  <section id="loginComponent" class="login-component hidden">
+  <section id="login" class="login-component hidden">
     <h1>Log in</h1>
     <form class="login-form">
       <label for="username">Username</label>
@@ -34,11 +34,11 @@
       <label for="password">Password</label>
       <input type="password" id="password">
       <button id="loginBtn" class="button">Log in</button>
-      <button id="signUpComponentBtn" class="button">Create New Account</button>
+      <button id="showSignUpBtn" class="button">Create New Account</button>
     </form>
   </section>
 
-  <section id="signUpComponent" class="signup-component hidden">
+  <section id="signup" class="signup-component hidden">
     <h1>Create New Account</h1>
     <form class="signup-form">
       <label for="newUsername">Username</label>
@@ -51,7 +51,18 @@
     </form>
   </section>
 
+<!---tools-->
+<script type="text/javascript" src="./js/data.js"></script>
 
-<script src="main.js"></script>
+<script src="./js/main.js"></script>
+
+<script src="./js/authentication/login.js"></script>
+<script src="./js/authentication/createAccount.js"></script>
+
+<!-- buttons and navigation -->
+<script type="text/javascript" src="./js/routing.js"></script>
+<script type="text/javascript" src="./js/navigationButtons.js"></script>
+
+
 </body>
 </html>
