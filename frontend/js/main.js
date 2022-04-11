@@ -36,4 +36,9 @@ const printBookCard = async (book) => {
   libraryList.append(bookItem)
 }
 
-printLibraryList()
+const printHomePage = () => {
+  if (libraryList.hidden) return;
+  printLibraryList();
+}
+
+printHomePage();
