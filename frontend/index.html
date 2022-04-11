@@ -7,6 +7,7 @@
   <title>Library App Using Headless CMS – Strapi</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.1/axios.min.js" integrity="sha512-bPh3uwgU5qEMipS/VOmRqynnMXGGSRv+72H/N260MQeXZIK4PG48401Bsby9Nq5P5fz7hy5UGNmC/W1Z51h2GQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="style.css">
 
 </head>
 <body>
@@ -21,19 +22,32 @@
     </div>
   </nav>
 
-  <h1>All titles available</h1>
-
   <section id="libraryList">
+    <h1>All titles available</h1>
   </section>
 
-  <section id="loginComponent" class="login-component">
-    <p>Log in</p>
+  <section id="loginComponent" class="login-component hidden">
+    <h1>Log in</h1>
     <form class="login-form">
       <label for="username">Username</label>
       <input id="username" type="text">
       <label for="password">Password</label>
       <input type="password" id="password">
       <button id="loginBtn" class="button">Log in</button>
+      <button id="signUpComponentBtn" class="button">Create New Account</button>
+    </form>
+  </section>
+
+  <section id="signUpComponent" class="signup-component hidden">
+    <h1>Create New Account</h1>
+    <form class="signup-form">
+      <label for="newUsername">Username</label>
+      <input id="newUsername" type="text">
+      <label for="newEmail">Email</label>
+      <input id="newEmail" type="email">
+      <label for="newPassword">Password</label>
+      <input id="newPassword" type="password" >
+      <button id="signUpBtn" class="button">Sign Up</button>
     </form>
   </section>
 

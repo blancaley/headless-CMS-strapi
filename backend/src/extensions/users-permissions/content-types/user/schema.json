@@ -65,13 +65,15 @@
     },
     "audiobooks": {
       "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::audiobook.audiobook"
+      "relation": "manyToMany",
+      "target": "api::audiobook.audiobook",
+      "inversedBy": "users"
     },
     "books": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::book.book"
+      "target": "api::book.book",
+      "mappedBy": "user"
     }
   }
 }
