@@ -1,3 +1,4 @@
+const LOCAL_HOST = "http://localhost:1337";
 const loginBtn = document.getElementById("loginBtn");
 
 const fetchData = async (url) => {
@@ -24,31 +25,57 @@ const login = async () => {
   password.value="";
 }
 
-const printBooks = async () => {
-    const books = await fetchData("http://localhost:1337/api/books")
-    const booksList = document.getElementById("booksList");
-
-    books.data.forEach(book => {
-      const { attributes: { title, author, rating, pages} } = book;
-      const bookItem = document.createElement("li");
-      bookItem.innerHTML = `<h3>${title}</h3>
-      <p>${author}</p>
-      <p>${rating}</p>
-      <p>${pages}</p>`
-
-      booksList.append(bookItem)
-    });
-}
-const printAudiobooks = async () => {
-    const audiobooks = await fetchData("http://localhost:1337/api/audiobooks")
-    console.log(audiobooks.data)
+const getBooks = async () => {
+  const {data: books} = await fetchData("http://localhost:1337/api/books?populate=*")
+  return books;
 }
 
-printBooks();
-printAudiobooks();
+const getAudiobooks = async () => {
+  const {data: audiobooks} = await fetchData("http://localhost:1337/api/audiobooks?populate=*")
+
+  return audiobooks;
+}
+
+const printLibraryList = async () => {
+  const books = await getBooks();
+  const audiobooks = await getAudiobooks();
+
+  books.forEach(book => {
+    printBookCard(book);
+  });
+
+  audiobooks.forEach(audiobook => {
+    printAudiobookCard(audiobook);
+  });
+}
+
+const printBookCard = async (book) => {
+  const { attributes: { title, author, rating, pages:pagesNum, cover: { data: { attributes: {url}}}}} = book;
+
+  const libraryList = document.getElementById("libraryList");
+  const bookItem = document.createElement("article");
+  bookItem.innerHTML = 
+    `<div id="bookOwner">
+    <p>Batman</p>
+    <p>batman@gotham.com</p>
+    </div>
+    <div id="bookDetails">
+      <img id="bookCover" src="${LOCAL_HOST}${url}" alt="${title} book cover">
+      <h2>${title}</h2>
+      <p>By ${author}</p>
+      <p>Book <span>(${pagesNum} pages)</span></p>
+      <div><i class="fa fa-star"></i>${rating}/5</div>
+      <span>Tech</span>
+      <span>Programming</span>
+    </div>`
+
+  libraryList.append(bookItem)
+}
 
 // Event Listeners
 loginBtn.addEventListener("click", (e) => {
   e.preventDefault();
   login();
 })
+
+printLibraryList()
