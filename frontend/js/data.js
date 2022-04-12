@@ -13,16 +13,3 @@ const getAudiobooks = async () => {
 
   return audiobooks;
 }
-
-// const getUserInfo = async () => {
-//   const token = sessionStorage.getItem("token");
-
-//   const {data} = await fetchData("http://localhost:1337/api/users/me", {
-//     headers: {
-//       Authorization:
-//         `Bearer ${token}`,
-//     }
-//   })
-// }
-
-// getUserInfo()
