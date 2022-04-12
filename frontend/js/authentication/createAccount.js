@@ -1,7 +1,7 @@
 const signUpBtn = document.getElementById("signUpBtn");
 
 // Create new user and log in
-const createAccount = async () => {
+const createAccount = async (e) => {
   const username = document.getElementById("newUsername");
   const email = document.getElementById("newEmail");
   const password = document.getElementById("newPassword");
@@ -11,8 +11,8 @@ const createAccount = async () => {
     email: email.value,
     password: password.value,
   }).then(response => {
-    const token = response.data.jwt;
-    sessionStorage.setItem("token", token);
+    const {data} = response;
+    saveUserInfo(data);
   }).then(changeActivePage("profile"))
 }
 

@@ -11,8 +11,7 @@ const login = async () => {
     // password: password.value
   })
 
-  const token = data.jwt;
-  sessionStorage.setItem("token", token);
+  saveUserInfo(data);
 
   changeActivePage("profile")
 }
