@@ -1,7 +1,7 @@
 const signUpBtn = document.getElementById("signUpBtn");
 
 // Create new user and log in
-const createAccount = async (e) => {
+const createAccount = async () => {
   const username = document.getElementById("newUsername");
   const email = document.getElementById("newEmail");
   const password = document.getElementById("newPassword");

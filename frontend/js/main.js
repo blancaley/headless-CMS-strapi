@@ -15,13 +15,15 @@ const printLibraryList = async () => {
 }
 
 const printBookCard = async (book) => {
-  const { attributes: { title, author, rating, pages:pagesNum, cover: { data: { attributes: {url}}}}} = book;
-
+  const { attributes: { title, author, rating, pages:pagesNum, 
+    cover: { data: { attributes: {url}}},
+    user: { data: { attributes : { username, email}}}}} = book;
+    
   const bookItem = document.createElement("article");
   bookItem.innerHTML = 
     `<div id="bookOwner">
-    <p>Batman</p>
-    <p>batman@gotham.com</p>
+    <p>${username}</p>
+    <p>${email}</p>
     </div>
     <div id="bookDetails">
       <img id="bookCover" src="${LOCAL_HOST}${url}" alt="${title} book cover">
@@ -41,4 +43,5 @@ const printHomePage = () => {
   printLibraryList();
 }
 
+drawNavBarBtn();
 printHomePage();

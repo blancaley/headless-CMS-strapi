@@ -4,7 +4,7 @@ const drawProfilePage = () => {
   if (profile.hidden) return;
 
   drawUserInfo();
-  //drawUserItems();
+  drawUserItems();
 }
 
 const drawUserInfo = () => {
@@ -20,8 +20,10 @@ const drawUserInfo = () => {
     <p>Joined ${createdAt}</p>`
 }
 
-// const drawUserItems = () => {
-//   const userItems = document.getElementById("userItems")
-// }
+const drawUserItems = async () => {
+  const userItems = document.getElementById("userItems");
+
+  //const response = await axios.get("")
+}
 
 drawProfilePage();

@@ -10,3 +10,14 @@ const getUserProfile = () => {
   const userProfile = JSON.parse(sessionStorage.getItem("userProfile"));
   return userProfile;
 }
+
+const getToken = () => {
+  return sessionStorage.getItem("token");
+}
+
+// Check if user is logged in
+// const isLoggedIn = () => {
+//   const token = getToken();
+//   if(token) return true;
+//   return false;
+// }

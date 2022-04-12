@@ -13,3 +13,16 @@ const getAudiobooks = async () => {
 
   return audiobooks;
 }
+
+const getUserDataStrapi = async () => {
+  const token = getToken();
+  const response = await axios.get("http://localhost:1337/api/users/me?populate=*", {
+    headers: {
+      //Use token that you stored from previous request
+      Authorization: `Bearer ${token}`,
+    }
+  })
+  console.log(response)
+}
+
+getUserDataStrapi()
