@@ -21,3 +21,11 @@ const getToken = () => {
 //   if(token) return true;
 //   return false;
 // }
+
+// Formatting HTML templates
+const formatGenresWithSpan = (genresArray) => {
+  return genresArray?.reduce((genresHTML, genre) => {
+    const { attributes: { name }} = genre;
+    return genresHTML + `<span>${name}</span>`
+  }, "")
+}

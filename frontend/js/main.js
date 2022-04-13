@@ -17,8 +17,11 @@ const printLibraryList = async () => {
 const printBookCard = async (book) => {
   const { attributes: { title, author, rating, pages:pagesNum, 
     cover: { data: { attributes: {url}}},
-    user: { data: { attributes : { username, email}}}}} = book;
-    
+    user: { data: { attributes: { username, email}}},
+    genres: { data: genresArray}}} = book;
+
+  const genresHTML = formatGenresWithSpan(genresArray)
+
   const bookItem = document.createElement("article");
   bookItem.innerHTML = 
     `<div id="bookOwner">
@@ -31,8 +34,7 @@ const printBookCard = async (book) => {
       <p>By ${author}</p>
       <p>Book <span>(${pagesNum} pages)</span></p>
       <div><i class="fa fa-star"></i>${rating}/5</div>
-      <span>Tech</span>
-      <span>Programming</span>
+      <div id="genres">${genresHTML}</div>
     </div>`
 
   libraryList.append(bookItem)
