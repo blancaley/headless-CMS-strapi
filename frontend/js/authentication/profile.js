@@ -3,6 +3,11 @@ const profile = document.getElementById("profile")
 const drawProfilePage = () => {
   if (profile.hidden) return;
 
+  // If not logged in re-direct to login page
+  if (!isLoggedIn()) {
+    changeActivePage("login")
+  } 
+
   drawUserInfo();
   drawUserItems();
 }

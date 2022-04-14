@@ -15,12 +15,12 @@ const getToken = () => {
   return sessionStorage.getItem("token");
 }
 
-// Check if user is logged in
-// const isLoggedIn = () => {
-//   const token = getToken();
-//   if(token) return true;
-//   return false;
-// }
+//Check if user is logged in
+const isLoggedIn = () => {
+  const token = getToken();
+  if(token) return true;
+  return false;
+}
 
 // Formatting HTML templates
 const formatGenresWithSpan = (genresArray) => {
