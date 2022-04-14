@@ -1,20 +1,20 @@
 // Query strings routing – Show different sections
 const sections = document.querySelectorAll("section");
 
-const createURL = (sectionName) => {
+const createURL = (key, value) => {
   const url = new URL(window.location.href);
   const search_params = url.searchParams;
 
-  // Lägger till section parameter
-  search_params.set('section', sectionName);
+  // Lägger till parameter
+  search_params.append(key, value);
 
   return url
 }
 
 // Uppdatera sida
-const changeActivePage = (sectionName) => {
+const changeActivePage = (key, value) => {
   // Skapar URL
-  const url = createURL(sectionName);
+  const url = createURL(key, value);
   // Uppdaterar sidan
   location.href = url;
 }

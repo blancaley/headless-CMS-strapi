@@ -21,6 +21,12 @@
     <h1>All titles available</h1>
   </section>
 
+  <section id="additem">
+    <h1>Choose item for lending</h1>
+    <button id="goToBookFormBtn" onclick=changeActivePage("item","book")><i class="fa fa-book"></i>Add a book</button>
+    <button id="goToAudioBookFormBtn" onclick=changeActivePage("item","audiobook")><i class="fa fa-file-audio-o"></i>Add an audiobook</button>
+  </section>
+
   <section id="login" class="login-component" hidden>
     <h1>Log in</h1>
     <form class="login-form">
@@ -67,6 +73,7 @@
 <script type="text/javascript" src="./js/navigationButtons.js"></script>
 
 <script src="./js/main.js"></script>
+<script src="./js/contentCreation/addBook.js"></script>
 <script src="./js/authentication/profile.js"></script>
 
 </body>
