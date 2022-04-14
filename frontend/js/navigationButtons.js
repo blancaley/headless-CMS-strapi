@@ -24,7 +24,8 @@ const drawLoggedInNav = () => {
   const userProfile = getUserProfile();
   const {username} = userProfile;
   navBarBtn.innerHTML =
-  `<button id="loggedInUser" onclick=changeActivePage("profile")><i class="fa fa-user"></i>${username}</button>`
+  `<button id="addItemBtn" onclick=changeActivePage("additem")><i class="fa fa-plus"></i>Add item</button>
+  <button id="loggedInUser" onclick=changeActivePage("profile")><i class="fa fa-user"></i>${username}</button>`
 }
 
 const drawPublicNav = () => {
