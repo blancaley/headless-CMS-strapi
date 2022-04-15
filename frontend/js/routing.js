@@ -42,7 +42,7 @@ const setActivePage = () => {
   if(currentBookType) {
     document.getElementById("additem").hidden = true;
     document.getElementById("addItemFormPage").hidden = false;
-    drawAddItemFormPage()
+    drawAddFormPage();
   }
 }
 
