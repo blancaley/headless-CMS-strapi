@@ -21,10 +21,35 @@
     <h1>All titles available</h1>
   </section>
 
-  <section id="additem">
+  <section id="additem" hidden>
     <h1>Choose item for lending</h1>
-    <button id="goToBookFormBtn" onclick=changeActivePage("item","book")><i class="fa fa-book"></i>Add a book</button>
-    <button id="goToAudioBookFormBtn" onclick=changeActivePage("item","audiobook")><i class="fa fa-file-audio-o"></i>Add an audiobook</button>
+    <button id="goToBookFormBtn" onclick=changeActivePage("type","book")><i class="fa fa-book"></i>Add a book</button>
+    <button id="goToAudioBookFormBtn" onclick=changeActivePage("type","audiobook")><i class="fa fa-file-audio-o"></i>Add an audiobook</button>
+  </section>
+
+  <section id="addItemFormPage" hidden>
+    <h1>FORM</h1>
+    <!-- <div>
+      <label for="bookTitle">Title</label>
+      <input type="text" name="bookTitle" id="bookTitle">
+    </div>
+    <div>
+      <label for="author">Author</label>
+      <input type="text" name="author" id="author">
+    </div>
+    <div>
+      <label for="pages">Pages</label>
+      <input type="number" name="pages" id="pages">
+    </div>
+    <div>
+      <label for="rating">Rating</label>
+      <input type="number" name="rating" id="rating">
+    </div>
+    <div>
+      <label for="cover">Cover Image</label>
+      <input type="file" name="cover" id="cover">
+    </div>
+    <button>Add</button> -->
   </section>
 
   <section id="login" class="login-component" hidden>

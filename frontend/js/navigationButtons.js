@@ -3,17 +3,8 @@ const navBarBtn = document.getElementById("NavBarBtn");
 const showSignUpFromLoginBtn = document.getElementById("showSignUpFromLoginBtn");
 
 const drawNavBarBtn = () => {
-  // Check if user is logged in
-  let isLoggedIn;
-  const token = getToken();
-  if(token) {
-    isLoggedIn = true;
-  } else {
-    isLoggedIn = false;
-  }
-
-  // Draw nav bar based on logged in state
-  if(isLoggedIn) {
+  // Draw navbar based on logged in state
+  if(isLoggedIn()) {
     drawLoggedInNav()
   } else {
     drawPublicNav();
@@ -24,8 +15,8 @@ const drawLoggedInNav = () => {
   const userProfile = getUserProfile();
   const {username} = userProfile;
   navBarBtn.innerHTML =
-  `<button id="addItemBtn" onclick=changeActivePage("additem")><i class="fa fa-plus"></i>Add item</button>
-  <button id="loggedInUser" onclick=changeActivePage("profile")><i class="fa fa-user"></i>${username}</button>`
+  `<button id="addItemBtn" onclick=changeActivePage("section","additem")><i class="fa fa-plus"></i>Add item</button>
+  <button id="loggedInUser" onclick=changeActivePage("section","profile")><i class="fa fa-user"></i>${username}</button>`
 }
 
 const drawPublicNav = () => {

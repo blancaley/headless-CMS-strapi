@@ -25,9 +25,11 @@ const setActivePage = () => {
   let search_params = url.searchParams;
 
   const currentSection = search_params?.get("section");
+  const currentBookType = search_params?.get("type");
 
   if (!currentSection) return
   
+  // Show section
   sections.forEach(section => {
     if (section.id === currentSection){
         section.hidden = false;
@@ -35,6 +37,12 @@ const setActivePage = () => {
       section.hidden = true;
     }
   })
+
+  // Show form page section
+  if(currentBookType) {
+    document.getElementById("additem").hidden = true;
+    document.getElementById("addItemFormPage").hidden = false;
+  }
 }
 
 setActivePage();
