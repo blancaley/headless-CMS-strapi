@@ -30,6 +30,13 @@ const drawBookForm = () => {
     <input type="number" name="pages" id="pages">
   </div>
   <div>
+    <label for="genre">Genre</label>
+    <input type="checkbox" id="programming" value="Programming" />
+    <label for="programming">Programming</label>
+    <input type="checkbox" id="fiction" value="Fiction" />
+    <label for="fiction">Fiction</label>
+  </div>
+  <div>
     <label for="rating">Rating</label>
     <input type="number" name="rating" id="rating">
   </div>
@@ -58,6 +65,13 @@ const drawAudiobookForm = () => {
   <div>
     <label for="publicationDate">Publication Date</label>
     <input type="date" name="publicationDate" id="publicationDate">
+  </div>
+  <div>
+    <label for="genre">Genre</label>
+    <input type="checkbox" id="programming" value="Programming" />
+    <label for="programming">Programming</label>
+    <input type="checkbox" id="fiction" value="Fiction" />
+    <label for="fiction">Fiction</label>
   </div>
   <div>
     <label for="rating">Rating</label>
