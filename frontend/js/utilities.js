@@ -1,3 +1,4 @@
+const HOME_PAGE_URL = "http://127.0.0.1:5500/frontend/index.html";
 // Session Storage
 const saveUserInfo = (data) => {
   const token = data.jwt;
@@ -20,6 +21,13 @@ const isLoggedIn = () => {
   const token = getToken();
   if(token) return true;
   return false;
+}
+
+const logOut = () => {
+  sessionStorage.removeItem("token");
+  sessionStorage.removeItem("userProfile");
+
+  location.href = HOME_PAGE_URL;
 }
 
 // Formatting HTML templates
