@@ -6,15 +6,15 @@ const printLibraryList = async () => {
   const audiobooks = await getAudiobooks();
 
   books.forEach(book => {
-    printBookCard(book);
+    printBookCard(book, libraryList);
   });
 
-  // audiobooks.forEach(audiobook => {
-  //   printAudiobookCard(audiobook);
-  // });
+  audiobooks.forEach(audiobook => {
+    printAudiobookCard(audiobook, libraryList);
+  });
 }
 
-const printBookCard = async (book) => {
+const printBookCard = async (book, container) => {
   const { attributes: { title, author, rating, pages:pagesNum, 
     cover: { data: { attributes: {url}}},
     user: { data: { attributes: { username, email}}},
@@ -37,7 +37,33 @@ const printBookCard = async (book) => {
       <div id="genres">${genresHTML}</div>
     </div>`
 
-  libraryList.append(bookItem)
+  container.append(bookItem);
+}
+
+const printAudiobookCard = async (book, container) => {
+  const { attributes: { title, author, rating, duration, 
+    cover: { data: { attributes: {url}}},
+    user: { data: { attributes: { username, email}}},
+    genres: { data: genresArray}}} = book;
+
+  const genresHTML = formatGenresWithSpan(genresArray)
+
+  const bookItem = document.createElement("article");
+  bookItem.innerHTML = 
+    `<div id="bookOwner">
+    <p>${username}</p>
+    <p>${email}</p>
+    </div>
+    <div id="bookDetails">
+      <img id="bookCover" src="${LOCAL_HOST}${url}" alt="${title} book cover">
+      <h2>${title}</h2>
+      <p>By ${author}</p>
+      <p>Audiobook <span>(${duration} min)</span></p>
+      <div><i class="fa fa-star"></i>${rating}/5</div>
+      <div id="genres">${genresHTML}</div>
+    </div>`
+
+  container.append(bookItem);
 }
 
 const printHomePage = () => {
