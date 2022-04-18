@@ -5,9 +5,13 @@ const createURL = (key, value) => {
   const url = new URL(window.location.href);
   const search_params = url.searchParams;
 
-  // Lägger till parameter
-  search_params.append(key, value);
+  // Reset URL (remove type param) to go back to Add Item page from Form page
+  if(key === "section" && search_params.has("type")) {
+    search_params.delete("type");
+  }
 
+  // Lägger till parameter
+  search_params.set(key, value);
   return url
 }
 
