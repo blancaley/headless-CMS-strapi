@@ -21,11 +21,11 @@ const drawLoggedInNav = () => {
 
 const drawPublicNav = () => {
   navBarBtn.innerHTML =
-  `<button id="showLogInBtn" onclick=changeActivePage("login")>Log In</button>
-  <button id="showSignUpNavBtn" onclick=changeActivePage("signup");>Sign Up</button>`
+  `<button id="showLogInBtn" onclick=changeActivePage("section","login")>Log In</button>
+  <button id="showSignUpNavBtn" onclick=changeActivePage("section","signup");>Sign Up</button>`
 }
 
 showSignUpFromLoginBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  changeActivePage("signup");
+  changeActivePage("section","signup");
 })

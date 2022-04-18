@@ -13,7 +13,7 @@ const createAccount = async () => {
   }).then(response => {
     const {data} = response;
     saveUserInfo(data);
-  }).then(changeActivePage("profile"))
+  }).then(changeActivePage("section","profile"))
 }
 
 signUpBtn.addEventListener("click", (e) => {

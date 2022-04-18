@@ -5,7 +5,7 @@ const drawProfilePage = () => {
 
   // If not logged in re-direct to login page
   if (!isLoggedIn()) {
-    changeActivePage("login")
+    changeActivePage("section","login");
   } 
 
   const user = getUserProfile();
@@ -23,7 +23,8 @@ const drawUserInfo = (user) => {
     `<h1>${username}</h1>
     <p>${email}</p>
     <p>ID: ${id}</p>
-    <p>Joined ${createdAt}</p>`
+    <p>Joined ${createdAt}</p>
+    <button onclick="logOut()">Log Out</button>`
 }
 
 const drawUserItems = async (user) => {

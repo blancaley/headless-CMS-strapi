@@ -13,7 +13,7 @@ const login = async () => {
 
   saveUserInfo(data);
 
-  changeActivePage("profile")
+  changeActivePage("section","profile")
 }
 
 loginBtn.addEventListener("click", (e) => {
