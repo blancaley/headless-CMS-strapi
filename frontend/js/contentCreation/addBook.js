@@ -6,7 +6,7 @@ const addBook = async () => {
 
   // Get userID
   const user = getUserProfile();
-  const userID = [user.id];
+  const userID = user.id;
   
   // Get the image and put it in a FormData
   const cover = document.getElementById("cover").files;
@@ -28,7 +28,9 @@ const addBook = async () => {
         pages: pages.value,
         rating: rating.value,
         cover: imageId,
-        user: userID
+        user: [userID],
+        // Temporary solution for connecting user relation to book
+        userID: userID
       }
     },
     {
@@ -53,7 +55,7 @@ const addAudiobook = async () => {
 
   // Get userID
   const user = getUserProfile();
-  const userID = [user.id];
+  const userID = user.id;
 
   // Get the image and put it in a FormData
   const cover = document.getElementById("cover").files;
@@ -78,7 +80,9 @@ const addAudiobook = async () => {
         //{data: genresList},
         rating: rating.value,
         cover: imageId,
-        user: userID
+        user: [userID],
+        // Temporary solution for connecting user relation to book, instead of populating relation from User
+        userID: userID
       }
     },
     {
