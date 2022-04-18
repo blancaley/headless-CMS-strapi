@@ -8,13 +8,14 @@ const drawProfilePage = () => {
     changeActivePage("login")
   } 
 
-  drawUserInfo();
-  drawUserItems();
+  const user = getUserProfile();
+
+  drawUserInfo(user);
+  drawUserItems(user);
 }
 
-const drawUserInfo = () => {
-  const userProfile = getUserProfile();
-  const {username, email, id, createdAt} = userProfile;
+const drawUserInfo = (user) => {
+  const {username, email, id, createdAt} = user;
 
   const userInfo = document.getElementById("userInfo")
 
@@ -25,10 +26,32 @@ const drawUserInfo = () => {
     <p>Joined ${createdAt}</p>`
 }
 
-const drawUserItems = async () => {
+const drawUserItems = async (user) => {
+  // ID from logged in user
+  const {id} = user;
+
   const userItems = document.getElementById("userItems");
 
-  //const response = await axios.get("")
+  const books = await getBooks();
+  const audiobooks = await getAudiobooks();
+
+  books.forEach(book => {
+    // userID from book 
+    const {attributes: {userID}} = book;
+    
+    if (userID === id) {
+      printBookCard(book, userItems)
+    }
+  });
+
+  audiobooks.forEach(audiobook => {
+    // userID from book 
+    const {attributes: {userID}} = audiobook;
+    
+    if (userID === id) {
+      printAudiobookCard(audiobook, userItems)
+    }
+  });
 }
 
 drawProfilePage();
