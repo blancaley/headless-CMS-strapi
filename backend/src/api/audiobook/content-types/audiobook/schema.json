@@ -4,7 +4,8 @@
   "info": {
     "singularName": "audiobook",
     "pluralName": "audiobooks",
-    "displayName": "audiobook"
+    "displayName": "audiobook",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -25,11 +26,12 @@
       "type": "integer"
     },
     "cover": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "genres": {
       "type": "relation",
@@ -37,11 +39,17 @@
       "target": "api::genre.genre",
       "inversedBy": "audiobooks"
     },
-    "users": {
+    "user": {
       "type": "relation",
-      "relation": "manyToMany",
+      "relation": "manyToOne",
       "target": "plugin::users-permissions.user",
       "inversedBy": "audiobooks"
+    },
+    "userID": {
+      "type": "integer"
+    },
+    "author": {
+      "type": "string"
     }
   }
 }

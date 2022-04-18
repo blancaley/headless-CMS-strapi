@@ -63,16 +63,16 @@
       "inversedBy": "users",
       "configurable": false
     },
-    "audiobooks": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::audiobook.audiobook",
-      "inversedBy": "users"
-    },
     "books": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::book.book",
+      "mappedBy": "user"
+    },
+    "audiobooks": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::audiobook.audiobook",
       "mappedBy": "user"
     }
   }

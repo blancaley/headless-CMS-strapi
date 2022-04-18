@@ -68,9 +68,9 @@ const drawAudiobookForm = () => {
   </div>
   <div>
     <label for="genre">Genre</label>
-    <input type="checkbox" id="programming" value="Programming" />
+    <input type="checkbox" id="programming" value="1" />
     <label for="programming">Programming</label>
-    <input type="checkbox" id="fiction" value="Fiction" />
+    <input type="checkbox" id="fiction" value="2" />
     <label for="fiction">Fiction</label>
   </div>
   <div>
@@ -81,7 +81,7 @@ const drawAudiobookForm = () => {
     <label for="cover">Cover Image</label>
     <input type="file" name="cover" id="cover">
   </div>
-  <button>Add</button>`
+  <button onclick=addAudiobook()>Add</button>`
 }
 
 /*RATING

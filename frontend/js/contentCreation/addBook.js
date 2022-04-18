@@ -50,7 +50,7 @@ const addAudiobook = async () => {
   const rating = document.getElementById("rating");
 
   // const genresList = Array.from(selectedGenres).map(genre => {
-  //   return parseInt(genre.value)
+  //   return parseInt(genre.value);
   // })
 
   // Get userID
@@ -62,21 +62,22 @@ const addAudiobook = async () => {
   const imgData = new FormData();
   imgData.append("files", cover[0]);
 
-   // Upload image to Strapi
-   axios.post("http://localhost:1337/api/upload", imgData, {
+  // Upload image to Strapi
+  axios.post("http://localhost:1337/api/upload", imgData, {
     headers: {
       Authorization: `Bearer ${getToken()}`
     }
   }).then(response => {
-    // Get the image id and put it in the new book
+    // Get image id from uploaded image
     const imageId = response.data[0].id;
+
     axios.post("http://localhost:1337/api/audiobooks", {
       data: {
         title: bookTitle.value,
         author: author.value,
         duration: duration.value,
         publicationDate: publicationDate.value,
-        //genre: [1],
+        //genre: 1,
         //{data: genresList},
         rating: rating.value,
         cover: imageId,
