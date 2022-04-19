@@ -1,6 +1,7 @@
-const loginBtn = document.getElementById("loginBtn");
+import { saveUserInfo } from '../utils/utilities'
+import { changeActivePage } from '../utils/routing'
 
-const login = async () => {
+export const login = async () => {
   const username = document.getElementById("username");
   const password = document.getElementById("password");
 
@@ -15,8 +16,3 @@ const login = async () => {
 
   changeActivePage("section","profile")
 }
-
-loginBtn.addEventListener("click", (e) => {
-  e.preventDefault();
-  login();
-})

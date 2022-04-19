@@ -1,8 +1,11 @@
+import { addBook, addAudiobook } from '../contentCreation/addBook'
+
+
 const addItemFormPage = document.getElementById("addItemFormPage");
 let queryString = new URLSearchParams(location.search);
 let currentBookType = queryString.get("type");
 
-const drawAddFormPage = () => {
+export const drawAddFormPage = () => {
   // Draw form based on query param (book/audiobook)
   if(currentBookType === "book") {
     drawBookForm()
@@ -44,7 +47,12 @@ const drawBookForm = () => {
     <label for="cover">Cover Image</label>
     <input type="file" name="cover" id="cover">
   </div>
-  <button onclick=addBook()>Add</button>`
+  <button id="addBookBtn">Add</button>`
+
+  // Event Listener
+  document.getElementById("addBookBtn").addEventListener("click", () => {
+    addBook();
+  })
 }
 
 const drawAudiobookForm = () => {
@@ -81,7 +89,12 @@ const drawAudiobookForm = () => {
     <label for="cover">Cover Image</label>
     <input type="file" name="cover" id="cover">
   </div>
-  <button onclick=addAudiobook()>Add</button>`
+  <button id="addAudiobookBtn">Add</button>`
+
+  // Event Listener
+  document.getElementById("addAudiobookBtn").addEventListener("click", () => {
+    addAudiobook();
+  })
 }
 
 /*RATING

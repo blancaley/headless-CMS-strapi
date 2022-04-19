@@ -1,3 +1,5 @@
+import { drawAddFormPage } from '../printing/drawAddFormPage'
+
 // Query strings routing – Show different sections
 const sections = document.querySelectorAll("section");
 
@@ -16,7 +18,7 @@ const createURL = (key, value) => {
 }
 
 // Uppdatera sida
-const changeActivePage = (key, value) => {
+export const changeActivePage = (key, value) => {
   // Skapar URL
   const url = createURL(key, value);
   // Uppdaterar sidan
@@ -51,3 +53,16 @@ const setActivePage = () => {
 }
 
 setActivePage();
+
+// Event Listener
+
+const goToBookFormBtn = document.getElementById("goToBookFormBtn");
+const goToAudioBookFormBtn = document.getElementById("goToAudioBookFormBtn");
+
+goToBookFormBtn.addEventListener("click", () => {
+  changeActivePage("type","book");
+})
+
+goToAudioBookFormBtn.addEventListener("click", () => {
+  changeActivePage("type","audiobook");
+})

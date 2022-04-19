@@ -5,26 +5,26 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Library App Using Headless CMS – Strapi</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.1/axios.min.js" integrity="sha512-bPh3uwgU5qEMipS/VOmRqynnMXGGSRv+72H/N260MQeXZIK4PG48401Bsby9Nq5P5fz7hy5UGNmC/W1Z51h2GQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+  <link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
 
 </head>
 <body>
-  <nav id="navBar">
-    <a href="index.html"  id="homeNav">BookDucks</a>
+  <nav id="navBar" class="navbar">
+    <a href="index.html"  id="homeNav" class="logo">📘 BookDucks</a>
     <div id="NavBarBtn"></div>
   </nav>
 
   <section id="libraryList">
     <h1>All titles available</h1>
+    <div id="allItemsList">
+    </div>
   </section>
 
   <section id="additem" hidden>
     <h1>Choose item for lending</h1>
-    <button id="goToBookFormBtn" onclick=changeActivePage("type","book")><i class="fa fa-book"></i>Add a book</button>
-    <button id="goToAudioBookFormBtn" onclick=changeActivePage("type","audiobook")><i class="fa fa-file-audio-o"></i>Add an audiobook</button>
+    <button id="goToBookFormBtn"><i class="fa fa-book"></i>Add a book</button>
+    <button id="goToAudioBookFormBtn"><i class="fa fa-file-audio-o"></i>Add an audiobook</button>
   </section>
 
   <section id="addItemFormPage" hidden>
@@ -62,22 +62,7 @@
     </div>
   </section>
 
-<!--- Utilities -->
-<script type="text/javascript" src="./js/utilities.js"></script>
-<script type="text/javascript" src="./js/data.js"></script>
-
-<!--- Authentication -->
-<script src="./js/authentication/login.js"></script>
-<script src="./js/authentication/createAccount.js"></script>
-<script src="./js/drawAddFormPage.js"></script>
-
-<!-- Navigation -->
-<script type="text/javascript" src="./js/routing.js"></script>
-<script type="text/javascript" src="./js/navigationButtons.js"></script>
-
-<script src="./js/main.js"></script>
-<script src="./js/contentCreation/addBook.js"></script>
-<script src="./js/authentication/profile.js"></script>
+<script src="./dist/main.js"></script>
 
 </body>
 </html>

@@ -1,4 +1,6 @@
-const addBook = async () => {
+import { getToken, getUserProfile } from '../utils/utilities'
+
+export const addBook = async () => {
   const bookTitle = document.getElementById("bookTitle");
   const author = document.getElementById("author");
   const pages = document.getElementById("pages");
@@ -39,9 +41,10 @@ const addBook = async () => {
       }
     })
   })
+  changeActivePage("section","profile");
 }
 
-const addAudiobook = async () => {
+export const addAudiobook = async () => {
   const bookTitle = document.getElementById("bookTitle");
   const author = document.getElementById("author");
   const duration = document.getElementById("duration");
@@ -92,4 +95,5 @@ const addAudiobook = async () => {
       }
     })
   })
+  changeActivePage("section","profile");
 }

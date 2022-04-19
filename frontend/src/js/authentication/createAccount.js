@@ -1,7 +1,8 @@
-const signUpBtn = document.getElementById("signUpBtn");
+import { saveUserInfo } from '../utils/utilities'
+import { changeActivePage } from '../utils/routing'
 
 // Create new user and log in
-const createAccount = async () => {
+export const createAccount = async () => {
   const username = document.getElementById("newUsername");
   const email = document.getElementById("newEmail");
   const password = document.getElementById("newPassword");
@@ -15,8 +16,3 @@ const createAccount = async () => {
     saveUserInfo(data);
   }).then(changeActivePage("section","profile"))
 }
-
-signUpBtn.addEventListener("click", (e) => {
-  e.preventDefault();
-  createAccount();
-})

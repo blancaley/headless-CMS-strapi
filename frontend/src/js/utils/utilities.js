@@ -1,29 +1,29 @@
 const HOME_PAGE_URL = "http://127.0.0.1:5500/frontend/index.html";
 // Session Storage
-const saveUserInfo = (data) => {
+export const saveUserInfo = (data) => {
   const token = data.jwt;
   const userProfile = data.user;
   sessionStorage.setItem("token", token);
   sessionStorage.setItem("userProfile", JSON.stringify(userProfile));
 }
 
-const getUserProfile = () => {
+export const getUserProfile = () => {
   const userProfile = JSON.parse(sessionStorage.getItem("userProfile"));
   return userProfile;
 }
 
-const getToken = () => {
+export const getToken = () => {
   return sessionStorage.getItem("token");
 }
 
 //Check if user is logged in
-const isLoggedIn = () => {
+export const isLoggedIn = () => {
   const token = getToken();
   if(token) return true;
   return false;
 }
 
-const logOut = () => {
+export const logOut = () => {
   sessionStorage.removeItem("token");
   sessionStorage.removeItem("userProfile");
 
@@ -31,7 +31,7 @@ const logOut = () => {
 }
 
 // Formatting HTML templates
-const formatGenresWithSpan = (genresArray) => {
+export const formatGenresWithSpan = (genresArray) => {
   return genresArray?.reduce((genresHTML, genre) => {
     const { attributes: { name }} = genre;
     return genresHTML + `<span>${name}</span>`

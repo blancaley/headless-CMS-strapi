@@ -1,6 +1,9 @@
-const profile = document.getElementById("profile")
+import { changeActivePage } from '../utils/routing'
+import { getUserProfile, isLoggedIn, logOut } from '../utils/utilities'
+import { getBooks, getAudiobooks } from '../utils/data'
+import { printBookCard, printAudiobookCard } from '../printing/printBookCard'
 
-const drawProfilePage = () => {
+export const drawProfilePage = () => {
   if (profile.hidden) return;
 
   // If not logged in re-direct to login page
@@ -24,7 +27,12 @@ const drawUserInfo = (user) => {
     <p>${email}</p>
     <p>ID: ${id}</p>
     <p>Joined ${createdAt}</p>
-    <button onclick="logOut()">Log Out</button>`
+    <button id="logOutBtn">Log Out</button>`
+
+  // Event Listener
+  document.getElementById("logOutBtn").addEventListener("click", () => {
+    logOut();
+  })
 }
 
 const drawUserItems = async (user) => {
@@ -54,5 +62,3 @@ const drawUserItems = async (user) => {
     }
   });
 }
-
-drawProfilePage();
