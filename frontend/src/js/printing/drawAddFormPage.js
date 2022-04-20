@@ -106,6 +106,7 @@ const drawAudiobookForm = () => {
   // Event Listener
   document.getElementById("addAudiobookBtn").addEventListener("click", () => {
     addAudiobook();
+    changeActivePage("section","profile");
   })
 }
 

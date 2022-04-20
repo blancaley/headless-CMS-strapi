@@ -1,6 +1,6 @@
 const HOME_PAGE_URL = "http://127.0.0.1:5500/frontend/index.html";
 // Session Storage
-export const saveUserInfo = (data) => {
+export const saveUserInSessionStorage = (data) => {
   const token = data.jwt;
   const userProfile = data.user;
   sessionStorage.setItem("token", token);

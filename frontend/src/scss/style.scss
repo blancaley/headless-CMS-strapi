@@ -39,7 +39,6 @@ body {
 
 section {
   padding: 0 1.5rem;
-  margin-top: 4rem;
   max-width: 40rem;
 }
 
@@ -50,6 +49,12 @@ button {
   font-weight: bold;
 }
 
+// Sections
+// .all-items-list {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+// }
 /*    Components    */
 
 // Button
@@ -65,6 +70,7 @@ button {
     padding: 1rem 2rem;
     background-color: #fffef9; 
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 4rem;
   }
 
 .logo {
@@ -99,7 +105,7 @@ button {
 .book-card {
   display: flex;
   flex-direction: column;
-  max-width: 80%;
+  max-width: 500px;
   margin-bottom: 4rem;
 }
 
@@ -117,9 +123,11 @@ button {
 }
 
 .book-cover {
-  flex-grow: 1;
+  //flex-grow: 1;
+  flex-basis: 30%;
   img {
     width: 100%;
+    height: auto;
   }
 }
 
@@ -132,6 +140,10 @@ button {
     margin-bottom: 1rem;
   }
 
+  > * {
+    margin-bottom: .5rem;
+  }
+
   .rating {
     font-weight: bold;
   }
@@ -140,6 +152,7 @@ button {
     margin-top: 1rem;
 
     & > * {
+      margin-right: 1rem;
       border: black solid 1px;
       padding: .2rem;
       font-size: $small-size;
@@ -156,7 +169,6 @@ button {
 .login-form, .signup-form, .add-form-page {
   display: flex;
   flex-direction: column;
-  margin-bottom: 2rem;
 
   .input-group {
     display: flex;
@@ -182,7 +194,7 @@ button {
 .user-info {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: start;
   margin-bottom: 2rem;
 }
 

@@ -44,6 +44,14 @@ const drawUserItems = async (user) => {
   const books = await getBooks();
   const audiobooks = await getAudiobooks();
 
+  if (books || audiobooks) {
+    const userItems = document.getElementById("userItems");
+    const myBooksSubtitle = document.createElement("h2");
+    myBooksSubtitle.classList.add("subtitle");
+    myBooksSubtitle.innerText = "My Books";
+    userItems.prepend(myBooksSubtitle);
+  }
+
   books.forEach(book => {
     // userID from book 
     const {attributes: {userID}} = book;
