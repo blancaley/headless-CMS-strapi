@@ -16,49 +16,65 @@
   </nav>
 
   <section id="libraryList">
-    <h1>All titles available</h1>
+    <h1 class="header-title">All titles available</h1>
     <div id="allItemsList">
     </div>
   </section>
 
   <section id="additem" hidden>
-    <h1>Choose item for lending</h1>
-    <button id="goToBookFormBtn"><i class="fa fa-book"></i>Add a book</button>
-    <button id="goToAudioBookFormBtn"><i class="fa fa-file-audio-o"></i>Add an audiobook</button>
+    <h1 class="header-title">Choose item for lending</h1>
+    <button id="goToBookFormBtn" class="button"><i class="fa fa-book"></i>Add a book</button>
+    <button id="goToAudioBookFormBtn" class="button"><i class="fa fa-file-audio-o"></i>Add an audiobook</button>
   </section>
 
   <section id="addItemFormPage" hidden>
   </section>
 
   <section id="login" class="login-component" hidden>
-    <h1>Log in</h1>
+    <h1 class="header-title">Log in</h1>
     <form class="login-form">
-      <label for="username">Username</label>
-      <input id="username" type="text">
-      <label for="password">Password</label>
-      <input type="password" id="password">
+      <div class="input-group">
+        <label for="username">Username</label>
+        <input id="username" type="text">
+      </div>
+      <div class="input-group">
+        <label for="password">Password</label>
+        <input type="password" id="password">
+      </div>
+
       <button id="loginBtn" class="button">Log in</button>
       <button id="showSignUpFromLoginBtn" class="button">Create New Account</button>
     </form>
   </section>
 
   <section id="signup" class="signup-component" hidden>
-    <h1>Create New Account</h1>
+    <h1 class="header-title">Create New Account</h1>
     <form class="signup-form">
-      <label for="newUsername">Username</label>
-      <input id="newUsername" type="text">
-      <label for="newEmail">Email</label>
-      <input id="newEmail" type="email">
-      <label for="newPassword">Password</label>
-      <input id="newPassword" type="password" >
+      <div class="input-group">
+        <label for="newUsername">Username</label>
+        <input id="newUsername" type="text">
+      </div>
+      <div class="input-group">
+        <label for="newEmail">Email</label>
+        <input id="newEmail" type="email">
+      </div>
+      <div class="input-group">
+        <label for="newPassword">Password</label>
+        <input id="newPassword" type="password" >
+      </div>
+      
       <button id="signUpBtn" class="button">Sign Up</button>
     </form>
   </section>
 
   <section id="profile" hidden>
-    <div id="userInfo">
+    <h1 class="header-title">My Profile</h1>
+    <div id="userInfo" class="user-info">
     </div>
     <div id="userItems">
+      <h2 class="subtitle">My books</h2>
+      <div id="userItemsList">
+      </div>
     </div>
   </section>
 

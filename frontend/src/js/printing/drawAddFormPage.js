@@ -2,6 +2,7 @@ import { addBook, addAudiobook } from '../contentCreation/addBook'
 
 
 const addItemFormPage = document.getElementById("addItemFormPage");
+addItemFormPage.classList.add("add-form-page")
 let queryString = new URLSearchParams(location.search);
 let currentBookType = queryString.get("type");
 
@@ -19,35 +20,41 @@ export const drawAddFormPage = () => {
 
 const drawBookForm = () => {
   addItemFormPage.innerHTML = 
-  `<h1>Add book</h1>
-  <div>
+  `<h1 class="header-title">Add book</h1>
+  <div class="input-group">
     <label for="bookTitle">Title</label>
     <input type="text" name="bookTitle" id="bookTitle">
   </div>
-  <div>
+  <div class="input-group"> 
     <label for="author">Author</label>
     <input type="text" name="author" id="author">
   </div>
-  <div>
+  <div class="input-group">
     <label for="pages">Pages</label>
     <input type="number" name="pages" id="pages">
   </div>
-  <div>
+  <div class="input-group">
     <label for="genre">Genre</label>
-    <input type="checkbox" id="programming" value="Programming" />
-    <label for="programming">Programming</label>
-    <input type="checkbox" id="fiction" value="Fiction" />
-    <label for="fiction">Fiction</label>
+    <div class="genre-tags-list">
+      <div>
+        <input type="checkbox" id="programming" value="Programming" />
+        <label for="programming">Programming</label>
+      </div>
+      <div>
+        <input type="checkbox" id="fiction" value="Fiction" />
+        <label for="fiction">Fiction</label>
+      </div>
+    </div>
   </div>
-  <div>
-    <label for="rating">Rating</label>
+  <div class="input-group">
+    <label for="rating" max="5">Rating</label>
     <input type="number" name="rating" id="rating">
   </div>
-  <div>
+  <div class="input-group">
     <label for="cover">Cover Image</label>
     <input type="file" name="cover" id="cover">
   </div>
-  <button id="addBookBtn">Add</button>`
+  <button id="addBookBtn" class="button">Add</button>`
 
   // Event Listener
   document.getElementById("addBookBtn").addEventListener("click", () => {
@@ -57,39 +64,45 @@ const drawBookForm = () => {
 
 const drawAudiobookForm = () => {
   addItemFormPage.innerHTML =   
-  `<h1>Add audiobook</h1>
-  <div>
+  `<h1 class="header-title">Add audiobook</h1>
+  <div class="input-group">
     <label for="bookTitle">Title</label>
     <input type="text" name="bookTitle" id="bookTitle">
   </div>
-  <div>
+  <div class="input-group">
     <label for="author">Author</label>
     <input type="text" name="author" id="author">
   </div>
-  <div>
+  <div class="input-group">
     <label for="duration">Duration</label>
     <input type="number" name="duration" id="duration">
   </div>
-  <div>
+  <div class="input-group">
     <label for="publicationDate">Publication Date</label>
     <input type="date" name="publicationDate" id="publicationDate">
   </div>
-  <div>
+  <div class="input-group">
     <label for="genre">Genre</label>
-    <input type="checkbox" id="programming" value="1" />
-    <label for="programming">Programming</label>
-    <input type="checkbox" id="fiction" value="2" />
-    <label for="fiction">Fiction</label>
+    <div class="genre-tags-list">
+      <div>
+        <input type="checkbox" id="programming" value="1" />
+        <label class="genre-tag" for="programming">Programming</label>
+      </div>
+      <div>
+        <input type="checkbox" id="fiction" value="2" />
+        <label class="genre-tag" for="fiction">Fiction</label>
+      </div>
+    </div>
   </div>
-  <div>
+  <div class="input-group">
     <label for="rating">Rating</label>
-    <input type="number" name="rating" id="rating">
+    <input type="number" name="rating" id="rating" max="5">
   </div>
-  <div>
+  <div class="input-group">
     <label for="cover">Cover Image</label>
     <input type="file" name="cover" id="cover">
   </div>
-  <button id="addAudiobookBtn">Add</button>`
+  <button id="addAudiobookBtn" class="button">Add</button>`
 
   // Event Listener
   document.getElementById("addAudiobookBtn").addEventListener("click", () => {

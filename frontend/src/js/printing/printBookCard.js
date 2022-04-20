@@ -31,8 +31,8 @@ export const printBookCard = async (book, container) => {
   bookItem.classList.add("book-card");
   bookItem.innerHTML = 
     `<div id="bookOwner" class="book-owner">
-    <p>${username}</p>
-    <p>${email}</p>
+    <p class="username">${username}</p>
+    <p class="email">${email}</p>
     </div>
     <div id="bookDetails" class="book-details">
       <div class="book-cover">
@@ -42,8 +42,8 @@ export const printBookCard = async (book, container) => {
         <h2>${title}</h2>
         <p>By ${author}</p>
         <p>Book <span>(${pagesNum} pages)</span></p>
-        <div><i class="fa fa-star"></i>${rating}/5</div>
-        <div id="genres">${genresHTML}</div>
+        <div class="rating"><i class="fa fa-star"></i>${rating}/5</div>
+        <div id="genres" class="genre-tags">${genresHTML}</div>
       </div>
     </div>`
 
@@ -59,18 +59,23 @@ export const printAudiobookCard = async (book, container) => {
   const genresHTML = formatGenresWithSpan(genresArray)
 
   const bookItem = document.createElement("article");
+  bookItem.classList.add("book-card");
   bookItem.innerHTML = 
-    `<div id="bookOwner">
-    <p>${username}</p>
-    <p>${email}</p>
+    `<div id="bookOwner" class="book-owner">
+      <p class="username">${username}</p>
+      <p class="email">${email}</p>
     </div>
-    <div id="bookDetails">
-      <img id="bookCover" src="${LOCAL_HOST}${url}" alt="${title} book cover">
-      <h2>${title}</h2>
-      <p>By ${author}</p>
-      <p>Audiobook <span>(${duration} min)</span></p>
-      <div><i class="fa fa-star"></i>${rating}/5</div>
-      <div id="genres">${genresHTML}</div>
+    <div id="bookDetails" class="book-details">
+      <div class="book-cover">
+        <img id="bookCover" src="${LOCAL_HOST}${url}" alt="${title} book cover">
+      </div>
+      <div class="book-info">
+        <h2>${title}</h2>
+        <p>By ${author}</p>
+        <p>Audiobook <span>(${duration} min)</span></p>
+        <div class="rating"><i class="fa fa-star"></i>${rating}/5</div>
+        <div id="genres" class="genre-tags">${genresHTML}</div>
+      </div>
     </div>`
 
   container.prepend(bookItem);

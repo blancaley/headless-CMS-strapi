@@ -1,5 +1,6 @@
 import { saveUserInfo } from '../utils/utilities'
 import { changeActivePage } from '../utils/routing'
+import axios from 'axios';
 
 export const login = async () => {
   const username = document.getElementById("username");
@@ -10,6 +11,9 @@ export const login = async () => {
     password: "Batman123"
     // identifier: username.value,
     // password: password.value
+
+    //admin@strapi.com
+    //Admin123
   })
 
   saveUserInfo(data);

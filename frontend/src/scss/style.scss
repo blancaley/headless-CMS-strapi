@@ -3,10 +3,36 @@
   display: none;
 }
 
+// Reset
+body,
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+img {
+  display: block;
+  object-fit: cover;
+}
+
+// Variables
+$background-color: #fffef9;
+$main-color: #990011FF;
+$cta-color: rgb(170 234 168);
+$small-size: .8rem;
+
+
 /* General style */
+html {
+  font-size: 20px;
+}
+
 body {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  background-color: #fffef9; 
+  background-color: $background-color; 
   color:rgb(51, 51, 51);
   margin: 0;
 }
@@ -14,6 +40,7 @@ body {
 section {
   padding: 0 1.5rem;
   margin-top: 4rem;
+  max-width: 40rem;
 }
 
 button {
@@ -23,9 +50,12 @@ button {
   font-weight: bold;
 }
 
-/* #990011FF; */
-
 /*    Components    */
+
+// Button
+.button {
+  padding: .5rem;
+}
 
 /* Navbar */
 .navbar {
@@ -58,11 +88,11 @@ button {
   border-radius: 6em;
   transition: all .2s;
   border: none;
-}
 
-.signup-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
 }
 
 /* Book card */
@@ -70,6 +100,15 @@ button {
   display: flex;
   flex-direction: column;
   max-width: 80%;
+  margin-bottom: 4rem;
+}
+
+.book-owner {
+  margin-bottom: 1rem;
+  font-size: $small-size;
+  .username {
+    font-weight: bold;
+  }
 }
 
 .book-details {
@@ -79,10 +118,115 @@ button {
 
 .book-cover {
   flex-grow: 1;
+  img {
+    width: 100%;
+  }
 }
 
 .book-info {
   display: flex;
   flex-direction: column;
   flex-grow: 3;
+
+  h2 {
+    margin-bottom: 1rem;
+  }
+
+  .rating {
+    font-weight: bold;
+  }
+
+  .genre-tags {
+    margin-top: 1rem;
+
+    & > * {
+      border: black solid 1px;
+      padding: .2rem;
+      font-size: $small-size;
+    }
+  }
+}
+
+.header-title {
+  padding-bottom: 3rem;
+  font-size: 2.5rem;
+}
+
+// Forms
+.login-form, .signup-form, .add-form-page {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.3rem;
+
+    label {
+      margin-bottom: .3rem;
+    }
+    input {
+      line-height: 1.5rem;
+    }
+  }
+
+  .button {
+    margin-bottom: 1rem;
+    background-color: $cta-color;
+    border: 1px rgb(108 152 107) solid;
+  }
+}
+
+// Profile
+.user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.subtitle {
+  margin-bottom: 1rem;
+}
+
+// Checkbox
+.genre-tags-list {
+  display: flex;
+  gap: 1rem;
+
+  div {
+    display: flex;
+  }
+}
+
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  appearance: none;
+  margin-right: .5rem;
+  width: 1rem;
+  height: 1rem;
+  color: black;
+  background-color: white;
+  border: 0.1em solid black;
+  border-radius: 2rem;
+  transform: translateY(-0.075em);
+  display: grid;
+  place-content: center;
+
+  &::before {
+    content: "";
+    width: 0.8rem;
+    height: 0.8rem;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em rgb(77 172 0);
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+  }
+  &:checked::before {
+    transform: scale(1);
+  }
+  &:checked + .genre-tag {
+    font-weight: bold;
+  }
 }

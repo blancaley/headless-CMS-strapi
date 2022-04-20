@@ -39,7 +39,7 @@ const drawUserItems = async (user) => {
   // ID from logged in user
   const {id} = user;
 
-  const userItems = document.getElementById("userItems");
+  const userItemsList = document.getElementById("userItemsList");
 
   const books = await getBooks();
   const audiobooks = await getAudiobooks();
@@ -49,7 +49,7 @@ const drawUserItems = async (user) => {
     const {attributes: {userID}} = book;
     
     if (userID === id) {
-      printBookCard(book, userItems)
+      printBookCard(book, userItemsList)
     }
   });
 
@@ -58,7 +58,7 @@ const drawUserItems = async (user) => {
     const {attributes: {userID}} = audiobook;
     
     if (userID === id) {
-      printAudiobookCard(audiobook, userItems)
+      printAudiobookCard(audiobook, userItemsList)
     }
   });
 }

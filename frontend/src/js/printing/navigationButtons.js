@@ -19,8 +19,8 @@ const drawLoggedInNav = () => {
   const userProfile = getUserProfile();
   const {username} = userProfile;
   navBarBtn.innerHTML =
-  `<button id="addItemBtn"><i class="fa fa-plus"></i>Add item</button>
-  <button id="loggedInUser"><i class="fa fa-user"></i>${username}</button>`
+  `<button id="addItemBtn" class="additem-btn"><i class="fa fa-plus"></i>Add item</button>
+  <button id="loggedInUser" class="loggedInUser-btn"><i class="fa fa-user"></i>${username}</button>`
 
   // Event Listeners
   document.getElementById("addItemBtn").addEventListener("click", () => {
