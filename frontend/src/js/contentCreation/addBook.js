@@ -1,4 +1,4 @@
-import { getToken, getUserProfile } from '../utils/utilities'
+import { getToken, getUserProfile } from '../utils/utilities';
 import { changeActivePage } from '../utils/routing';
 import axios from 'axios';
 
@@ -12,7 +12,6 @@ export const addBook = async () => {
   const genresList = Array.from(selectedGenres).map(genre => {
     return parseInt(genre.value);
   })
-
   // Get userID
   const user = getUserProfile();
   const userID = user.id;
@@ -23,31 +22,32 @@ export const addBook = async () => {
   imgData.append("files", cover[0]);
 
   // Upload image to Strapi
-  axios.post("http://localhost:1337/api/upload", imgData, {
+  const uploadBookResponse = await axios.post("http://localhost:1337/api/upload", imgData, {
     headers: {
       Authorization: `Bearer ${getToken()}`
     }
-  }).then(response => {
-    // Get the image id and put it in the new book
-    const imageId = response.data[0].id;
-    axios.post("http://localhost:1337/api/books", {
-      data: {
-        title: bookTitle.value,
-        author: author.value,
-        pages: pages.value,
-        rating: rating.value,
-        genres: genresList,
-        cover: imageId,
-        user: [userID],
-        // Temporary solution for connecting user relation to book
-        userID: userID
-      }
-    },
-    {
-      headers: {
-        Authorization: `Bearer ${getToken()}`
-      }
-    })
+  })
+
+  const imageId = uploadBookResponse.data[0].id;
+
+  await axios.post("http://localhost:1337/api/books", {
+    data: {
+      title: bookTitle.value,
+      author: author.value,
+      pages: pages.value,
+      rating: rating.value,
+      genres: genresList,
+      cover: imageId,
+      // Strapi userID
+      user: [userID],
+      // Own userID to get book and user relation
+      userID: userID
+    }
+  },
+  {
+    headers: {
+      Authorization: `Bearer ${getToken()}`
+    }
   })
 
   changeActivePage("section","profile");
@@ -75,34 +75,35 @@ export const addAudiobook = async () => {
   imgData.append("files", cover[0]);
 
   // Upload image to Strapi
-  axios.post("http://localhost:1337/api/upload", imgData, {
+  const uploadBookResponse = await axios.post("http://localhost:1337/api/upload", imgData, {
     headers: {
       Authorization: `Bearer ${getToken()}`
     }
-  }).then(response => {
-    // Get image id from uploaded image
-    const imageId = response.data[0].id;
-
-    axios.post("http://localhost:1337/api/audiobooks", {
-      data: {
-        title: bookTitle.value,
-        author: author.value,
-        duration: duration.value,
-        publicationDate: publicationDate.value,
-        genres: genresList,
-        rating: rating.value,
-        cover: imageId,
-        user: [userID],
-        // Temporary solution for connecting user relation to book, instead of populating relation from User
-        userID: userID
-      }
-    },
-    {
-      headers: {
-        Authorization: `Bearer ${getToken()}`
-      }
-    })
   })
-  
+
+  // Get image id from uploaded image
+  const imageId = uploadBookResponse.data[0].id;
+
+  await axios.post("http://localhost:1337/api/audiobooks", {
+    data: {
+      title: bookTitle.value,
+      author: author.value,
+      duration: duration.value,
+      publicationDate: publicationDate.value,
+      genres: genresList,
+      rating: rating.value,
+      cover: imageId,
+      // Strapi userID
+      user: [userID],
+      // Own userID to get book and user relation
+      userID: userID
+    }
+  },
+  {
+    headers: {
+      Authorization: `Bearer ${getToken()}`
+    }
+  })
+
   changeActivePage("section","profile");
 }
