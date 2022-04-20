@@ -4,8 +4,6 @@ import { formatGenresWithSpan } from '../utils/utilities'
 const LOCAL_HOST = "http://localhost:1337";
 const allItemsList = document.getElementById("allItemsList");
 
-//const profile = document.getElementById("profile");
-
 export const printLibraryList = async () => {
   const books = await getBooks();
   const audiobooks = await getAudiobooks();
@@ -19,13 +17,20 @@ export const printLibraryList = async () => {
   });
 }
 
-export const printBookCard = async (book, container) => {
-  const { attributes: { title, author, rating, pages:pagesNum, 
-    cover: { data: { attributes: {url}}},
-    user: { data: { attributes: { username, email}}},
-    genres: { data: genresArray}}} = book;
+export const printBookCard = (book, container) => {
 
-  const genresHTML = formatGenresWithSpan(genresArray)
+  const {attributes} = book;
+
+  const title = attributes.title;
+  const author = attributes.author;
+  const rating = attributes.rating;
+  const pagesNum = attributes.pages;
+  const url = attributes.cover.data.attributes.url;
+  const username = attributes.user.data.attributes.username;
+  const email = attributes.user.data.attributes.email;
+  const genresArray = attributes.genres.data;
+
+  const genresHTML = formatGenresWithSpan(genresArray);
 
   const bookItem = document.createElement("article");
   bookItem.classList.add("book-card");
@@ -50,13 +55,19 @@ export const printBookCard = async (book, container) => {
   container.prepend(bookItem);
 }
 
-export const printAudiobookCard = async (book, container) => {
-  const { attributes: { title, author, rating, duration, 
-    cover: { data: { attributes: {url}}},
-    user: { data: { attributes: { username, email}}},
-    genres: { data: genresArray}}} = book;
+export const printAudiobookCard = (book, container) => {
+  const {attributes} = book;
 
-  const genresHTML = formatGenresWithSpan(genresArray)
+  const title = attributes.title;
+  const author = attributes.author;
+  const rating = attributes.rating;
+  const duration = attributes.duration;
+  const url = attributes.cover.data.attributes.url;
+  const username = attributes.user.data.attributes.username;
+  const email = attributes.user.data.attributes.email;
+  const genresArray = attributes.genres.data;
+
+  const genresHTML = formatGenresWithSpan(genresArray);
 
   const bookItem = document.createElement("article");
   bookItem.classList.add("book-card");
