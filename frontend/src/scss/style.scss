@@ -216,8 +216,8 @@ input[type="checkbox"] {
 
   &::before {
     content: "";
-    width: 0.8rem;
-    height: 0.8rem;
+    width: 0.7rem;
+    height: 0.7rem;
     transform: scale(0);
     transition: 120ms transform ease-in-out;
     box-shadow: inset 1em 1em rgb(77 172 0);

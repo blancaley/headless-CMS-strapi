@@ -1,10 +1,17 @@
 import { getToken, getUserProfile } from '../utils/utilities'
+import { changeActivePage } from '../utils/routing';
+import axios from 'axios';
 
 export const addBook = async () => {
   const bookTitle = document.getElementById("bookTitle");
   const author = document.getElementById("author");
   const pages = document.getElementById("pages");
+  const selectedGenres = document.querySelectorAll("input[type=checkbox]:checked");
   const rating = document.getElementById("rating");
+
+  const genresList = Array.from(selectedGenres).map(genre => {
+    return parseInt(genre.value);
+  })
 
   // Get userID
   const user = getUserProfile();
@@ -29,6 +36,7 @@ export const addBook = async () => {
         author: author.value,
         pages: pages.value,
         rating: rating.value,
+        genres: genresList,
         cover: imageId,
         user: [userID],
         // Temporary solution for connecting user relation to book
@@ -41,6 +49,7 @@ export const addBook = async () => {
       }
     })
   })
+
   changeActivePage("section","profile");
 }
 
@@ -51,10 +60,10 @@ export const addAudiobook = async () => {
   const publicationDate = document.getElementById("publicationDate");
   const selectedGenres = document.querySelectorAll("input[type=checkbox]:checked");
   const rating = document.getElementById("rating");
-
-  // const genresList = Array.from(selectedGenres).map(genre => {
-  //   return parseInt(genre.value);
-  // })
+  
+  const genresList = Array.from(selectedGenres).map(genre => {
+    return parseInt(genre.value);
+  })
 
   // Get userID
   const user = getUserProfile();
@@ -80,8 +89,7 @@ export const addAudiobook = async () => {
         author: author.value,
         duration: duration.value,
         publicationDate: publicationDate.value,
-        //genre: 1,
-        //{data: genresList},
+        genres: genresList,
         rating: rating.value,
         cover: imageId,
         user: [userID],
@@ -95,5 +103,6 @@ export const addAudiobook = async () => {
       }
     })
   })
+  
   changeActivePage("section","profile");
 }

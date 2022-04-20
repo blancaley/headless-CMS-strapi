@@ -1,6 +1,5 @@
 import { addBook, addAudiobook } from '../contentCreation/addBook'
 
-
 const addItemFormPage = document.getElementById("addItemFormPage");
 addItemFormPage.classList.add("add-form-page")
 let queryString = new URLSearchParams(location.search);
@@ -37,12 +36,12 @@ const drawBookForm = () => {
     <label for="genre">Genre</label>
     <div class="genre-tags-list">
       <div>
-        <input type="checkbox" id="programming" value="Programming" />
-        <label for="programming">Programming</label>
+        <input type="checkbox" id="programming" value="1" />
+        <label for="programming" class="genre-tag">Programming</label>
       </div>
       <div>
-        <input type="checkbox" id="fiction" value="Fiction" />
-        <label for="fiction">Fiction</label>
+        <input type="checkbox" id="fiction" value="2" />
+        <label for="fiction" class="genre-tag">Fiction</label>
       </div>
     </div>
   </div>
