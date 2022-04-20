@@ -1,6 +1,6 @@
-# BookDucks App
-A web app for a community library to borrow and exchange books and audiobooks.
-The project was focused on using headless CMS (Backend-only CMS that acts primarily as a content repository; the content is accessible by API endpoints.)
+# Library App – CMS
+A web app using a CMS (Content Management System) for a community library to borrow and exchange books and audiobooks.
+The project was focused on using headless CMS (backend-only CMS that acts primarily as a content repository; the content is accessible by API endpoints.)
 
 # Technologies and Tools
 * Headless CMS (Strapi)
@@ -19,7 +19,7 @@ The project was focused on using headless CMS (Backend-only CMS that acts primar
 * Figma
 
 # Skills Learned
-* How to interact with a CMS (Content Management System) by customizing the frontend code.
+* How to interact with a CMS by connecting it to customized frontend code.
 * Structure data by creating collection types and single types as well as establishing relations.
 * Manage users, roles & permissions.
 * Deepen knowlegde of using HTTP requests.
